@@ -1,0 +1,91 @@
+:root {
+  --card: #151a25;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #3b82f6;
+  --on: #22c55e;
+  --off: #ef4444;
+  --transition: 0.25s ease;
+}
+
+body {
+  background: linear-gradient(180deg, #0b0f19, #111827);
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.lightContainer {
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px 28px;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition);
+  align-items: center;
+}
+
+.lightContainer:hover {
+  transform: translateY(-3px);
+}
+
+.lightCircle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 10px auto 16px;
+  background: radial-gradient(circle, #2b2f3c 0%, #11151f 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+  position: relative;
+  transition: all var(--transition);
+}
+
+/* Estado encendido */
+.lightContainer.on .lightCircle {
+  background: radial-gradient(circle, var(--on) 0%, #064e3b 100%);
+  box-shadow: 0 0 25px var(--on), 0 0 60px rgba(34, 197, 94, 0.3);
+}
+
+/* Estado apagado */
+.lightContainer.off .lightCircle {
+  background: radial-gradient(circle, var(--off) 0%, #3f0a0a 100%);
+  box-shadow: 0 0 10px var(--off);
+}
+
+.lightDescription {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+  transition: color var(--transition);
+}
+
+.lightContainer.on .lightDescription {
+  color: var(--on);
+}
+
+.lightButton {
+  background: var(--accent);
+  border: none;
+  padding: 10px 22px;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.4);
+  transition: all var(--transition);
+}
+
+.lightButton:hover {
+  background: #2563eb;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.7);
+}
+
+.lightButton:active {
+  transform: scale(0.97);
+}
